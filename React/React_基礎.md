@@ -49,8 +49,18 @@ Reactは、**UI開発**において**重要**な役割を果たしており、**
   * **Node.js:** JavaScriptの実行環境です。公式サイト ([https://nodejs.org/ja/](https://www.google.com/url?sa=E&source=gmail&q=https://nodejs.org/ja/)) からダウンロードしてインストールしてください。
   * **npm** (またはyarn): Node.jsの**パッケージ管理**ツールです。Node.jsと一緒にインストールされます。
 
-#### Reactプロジェクトの作成 (create-react-app)
 
+
+### Reactプロジェクトの作成と起動
+>注意:
+プロジェクトの作成と起動は二つ方法があります。
+
+>**Reactでプロジェクトの作成と起動(create-react-app)**
+または
+**React+Viteのプロジェクト作成と起動**
+のどちらかでプロジェクトの作成と起動を行います。
+---
+#### **Reactでプロジェクトの作成と起動(create-react-app)**
 create-react-appは、**簡単**にReactプロジェクトを作成するためのツールです。ターミナルで以下のコマンドを実行してください。
 
 ```bash
@@ -59,15 +69,6 @@ npx create-react-app my-app
 
 my-appは、プロジェクト名です。任意の名前をつけてください。
 
-#### 開発エディタの設定 (VSCode推奨)
-
-VSCodeは、**高機能**なテキストエディタです。React開発を**サポート**する拡張機能が豊富にあります。
-
-1.  VSCodeをインストールしてください。
-2.  以下の拡張機能をインストールしてください。
-      * **ESLint:** JavaScriptの**文法チェック**ツールです。
-      * **Prettier:** コードの**フォーマッター**です。
-      * **React Developer Tools:** Reactコンポーネントの**デバッグ**ツールです。
 
 #### プロジェクト起動と表示
 
@@ -79,6 +80,38 @@ npm start
 ```
 
 Webブラウザが起動し、Reactの**初期画面**が表示されます。
+
+---
+
+#### **React+Viteのプロジェクト作成と起動**
+Vite プロジェクトの作成の場合よりシンプルな方法でプロジェクトを作成できます。
+
+npm create vite を使用して、Vite プロジェクトを簡単に作成できます。
+
+```bash
+npm create vite
+cd my-vite-app
+```
+
+依存関係のインストール
+```bash
+npm install
+```
+プロジェクトの起動
+```bash
+npm run dev
+```
+---
+
+#### 開発エディタの設定 (VSCode推奨)
+
+VSCodeは、**高機能**なテキストエディタです。React開発を**サポート**する拡張機能が豊富にあります。
+
+1.  VSCodeをインストールしてください。
+2.  以下の拡張機能をインストールしてください。
+      * **ESLint:** JavaScriptの**文法チェック**ツールです。
+      * **Prettier:** コードの**フォーマッター**です。
+      * **React Developer Tools:** Reactコンポーネントの**デバッグ**ツールです。
 
 ### 3\. Reactの基本
 
