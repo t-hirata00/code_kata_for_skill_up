@@ -1,3 +1,4 @@
+"use strict";
 /**
  * 文字列の数式を計算する関数
  * @param expression 計算する数式文字列 (例: "1 + 2 * 3")
@@ -6,18 +7,18 @@
 function calculateStringExpression(expression) {
     try {
         // 1. 式をトークンに分割 (数値、演算子、括弧)
-        var tokens = tokenize(expression);
+        const tokens = tokenize(expression);
         if (!tokens) {
             return null; // トークン化に失敗
         }
         // 2. トークンを逆ポーランド記法 (RPN) に変換
-        var rpnTokens = convertToRPN(tokens);
+        const rpnTokens = convertToRPN(tokens);
         if (!rpnTokens) {
             return null; // RPN 変換に失敗
         }
         // 3. RPN を計算
-        var result_1 = evaluateRPN(rpnTokens);
-        return result_1;
+        const result = evaluateRPN(rpnTokens);
+        return result;
     }
     catch (error) {
         console.error("Error during calculation:", error);
@@ -30,10 +31,9 @@ function calculateStringExpression(expression) {
  * @returns トークンの配列。エラー時は null
  */
 function tokenize(expression) {
-    var tokens = [];
-    var currentNumber = "";
-    for (var _i = 0, expression_1 = expression; _i < expression_1.length; _i++) {
-        var char = expression_1[_i];
+    const tokens = [];
+    let currentNumber = "";
+    for (const char of expression) {
         if (/[0-9.]/.test(char)) { // 数字または小数点の場合
             currentNumber += char;
         }
@@ -46,7 +46,7 @@ function tokenize(expression) {
         }
         else if (char !== " ") {
             //空白以外の文字で数字、演算子、()以外の文字が来た場合はエラー
-            console.error("Invalid character found: ".concat(char));
+            console.error(`Invalid character found: ${char}`);
             return null;
         }
         // 空白は無視
@@ -63,16 +63,15 @@ function tokenize(expression) {
  * @returns RPN形式のトークン配列。エラー時はnull
  */
 function convertToRPN(tokens) {
-    var outputQueue = [];
-    var operatorStack = [];
-    var precedence = {
+    const outputQueue = [];
+    const operatorStack = [];
+    const precedence = {
         '+': 1,
         '-': 1,
         '*': 2,
         '/': 2,
     };
-    for (var _i = 0, tokens_1 = tokens; _i < tokens_1.length; _i++) {
-        var token = tokens_1[_i];
+    for (const token of tokens) {
         if (typeof token === 'number') {
             outputQueue.push(token); // 数値は出力キューに直接追加
         }
@@ -115,16 +114,15 @@ function convertToRPN(tokens) {
  * @returns 計算結果
  */
 function evaluateRPN(rpnTokens) {
-    var stack = [];
-    for (var _i = 0, rpnTokens_1 = rpnTokens; _i < rpnTokens_1.length; _i++) {
-        var token = rpnTokens_1[_i];
+    const stack = [];
+    for (const token of rpnTokens) {
         if (typeof token === 'number') {
             stack.push(token); // 数値はスタックにプッシュ
         }
         else {
             // 演算子の場合、スタックから2つの値を取り出して計算
-            var operand2 = stack.pop();
-            var operand1 = stack.pop();
+            const operand2 = stack.pop();
+            const operand1 = stack.pop();
             switch (token) {
                 case '+':
                     stack.push(operand1 + operand2);
@@ -147,10 +145,10 @@ function evaluateRPN(rpnTokens) {
     return stack.pop(); // 最終的にスタックに残った値が計算結果
 }
 // 使用例
-var expression = "1 + 2 * (3 - 1) / 2";
-var result = calculateStringExpression(expression);
+const expression = "1 + 2 * (3 - 1) / 2";
+const result = calculateStringExpression(expression);
 if (result !== null) {
-    console.log("Result of \"".concat(expression, "\" is: ").concat(result)); // 出力: Result of "1 + 2 * (3 - 1) / 2" is: 3
+    console.log(`Result of "${expression}" is: ${result}`); // 出力: Result of "1 + 2 * (3 - 1) / 2" is: 3
 }
-var expression2 = "1 + 2 * (3 - 1 / 2";
-var result2 = calculateStringExpression(expression2); //括弧の対応が正しくないのでエラー
+const expression2 = "1 + 2 * (3 - 1 / 2";
+const result2 = calculateStringExpression(expression2); //括弧の対応が正しくないのでエラー
