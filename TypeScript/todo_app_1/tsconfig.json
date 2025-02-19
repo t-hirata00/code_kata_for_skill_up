@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6", // ECMAScript 6 (ES2015) をターゲットにする
+    "module": "commonjs", // CommonJSモジュール形式を使用する
+    "outDir": "./dist", // コンパイルされたJavaScriptファイルの出力先
+    "rootDir": "./src", // TypeScriptファイルのソースディレクトリ
+    "strict": true, // 厳格な型チェックを有効にする
+    "esModuleInterop": true, // CommonJSとESモジュールの相互運用性を向上させる
+    "skipLibCheck": true, // 型定義ファイルのチェックをスキップ
+    "forceConsistentCasingInFileNames": true //ファイル名の大文字小文字を区別
+  },
+  "include": [
+    "src/**/*"
+  ] // コンパイル対象のディレクトリ
+}
