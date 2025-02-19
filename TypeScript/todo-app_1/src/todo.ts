@@ -1,6 +1,6 @@
-//　Todoの定義
+// src/todo.ts
 export interface Todo {
   id: number;
   text: string;
-  completed: boolean;
+  done: boolean;
 }
