@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <style>
+    /* 簡単なスタイル */
+    body {
+      font-family: sans-serif;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 0.5em;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Todo App</h1>
+
+  <input type="text" id="newTodoInput" placeholder="Add a new todo">
+  <button id="addTodoBtn">Add</button>
+
+  <ul id="todoList"></ul>
+  <script src="app.js"></script>
+
+</body>
+
+</html>
